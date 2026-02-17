@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Landscaping Services | Aesthetic Gardener',
+  title: 'Landscaping Services | Aesthetic Gardener Holland MI',
   description:
     'Full-service landscaping: design, lawn care, snow removal, hardscaping, irrigation, and seasonal cleanups. Serving Holland and West Michigan.',
 };
@@ -13,6 +13,7 @@ const services = [
   {
     icon: '🌱',
     name: 'Landscaping Design',
+    slug: '/services/landscaping-design',
     description:
       'Transform your property with custom garden and planting design, tree installation, and complete landscape makeovers. Our team works with you to bring your vision to life, from initial concept to finished installation.',
     included: [
@@ -28,6 +29,7 @@ const services = [
   {
     icon: '🌿',
     name: 'Lawn Care & Maintenance',
+    slug: '/services/lawn-care',
     description:
       'Keep your lawn lush, green, and healthy all season long with our comprehensive maintenance programs. We use proven techniques and quality products to ensure your yard looks its best from spring through fall.',
     included: [
@@ -43,6 +45,7 @@ const services = [
   {
     icon: '❄️',
     name: 'Snow Removal',
+    slug: '/services/snow-removal',
     description:
       'Count on reliable plowing and de-icing services to keep your driveway, walkways, and property safe and accessible all winter. We offer flexible seasonal contracts and one-time service for Holland and West Michigan.',
     included: [
@@ -58,6 +61,7 @@ const services = [
   {
     icon: '🪨',
     name: 'Hardscaping',
+    slug: '/services/hardscaping',
     description:
       'Add lasting structure and beauty with patios, walkways, retaining walls, and outdoor living spaces. We use quality materials and expert craftsmanship so your hardscape looks great and stands the test of time.',
     included: [
@@ -149,6 +153,9 @@ export default function ServicesPage() {
               we offer full-service outdoor solutions for homes and businesses in Holland
               and West Michigan.
             </p>
+            <p className="text-lg text-sage-600 max-w-3xl mx-auto mt-6">
+              Explore our comprehensive range of landscaping services below, or click on any service to learn more about what we offer.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -183,10 +190,10 @@ export default function ServicesPage() {
                 </ul>
 
                 <Link
-                  href="/contact"
+                  href={'slug' in service && service.slug ? service.slug : '/contact'}
                   className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-forest-600 to-forest-500 text-white px-6 py-4 rounded-full font-semibold hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
-                  Request Quote
+                  {'slug' in service && service.slug ? 'Learn More' : 'Request Quote'}
                   <svg
                     className="w-4 h-4"
                     fill="none"

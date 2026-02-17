@@ -1,12 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+const servicesDropdownItems = [
+  { href: '/services', label: 'All Services' },
+  { href: '/services/landscaping-design', label: 'Landscaping Design' },
+  { href: '/services/lawn-care', label: 'Lawn Care & Maintenance' },
+  { href: '/services/snow-removal', label: 'Snow Removal' },
+  { href: '/services/hardscaping', label: 'Hardscaping' },
+] as const;
+
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
+  { href: null, label: 'Our Services', isDropdown: true },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -23,7 +31,11 @@ function CloseIcon() {
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [servicesAccordionOpen, setServicesAccordionOpen] = useState(false);
   const pathname = usePathname();
+  const isServicesActive = pathname === '/services' || pathname.startsWith('/services/');
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +45,22 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
+  useEffect(() => {
+    if (!servicesDropdownOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(target)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [servicesDropdownOpen]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setServicesAccordionOpen(false);
+  };
 
   return (
     <>
@@ -59,7 +86,68 @@ export default function Header() {
             </Link>
 
             <nav className="hidden md:flex items-center space-x-8">
-              {navLinks.map(({ href, label }) => {
+              {navLinks.map((item) => {
+                if (item.href === null && 'isDropdown' in item && item.isDropdown) {
+                  return (
+                    <div
+                      key="our-services"
+                      ref={servicesDropdownRef}
+                      className="relative"
+                      onMouseEnter={() => setServicesDropdownOpen(true)}
+                      onMouseLeave={() => setServicesDropdownOpen(false)}
+                    >
+                      <button
+                        type="button"
+                        className={`font-medium transition-colors duration-300 flex items-center gap-1 ${
+                          isServicesActive
+                            ? 'text-forest-900 font-semibold underline underline-offset-4 decoration-2'
+                            : 'text-forest-700 hover:text-forest-500'
+                        }`}
+                        aria-expanded={servicesDropdownOpen}
+                        aria-haspopup="true"
+                      >
+                        Our Services
+                        <svg
+                          className={`w-4 h-4 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      <div
+                        className={`absolute left-0 top-full pt-2 origin-top transition-all duration-300 ease-out ${
+                          servicesDropdownOpen
+                            ? 'opacity-100 translate-y-0 visible animate-fade-in-fast'
+                            : 'opacity-0 -translate-y-2 invisible pointer-events-none'
+                        }`}
+                      >
+                        <div className="bg-white rounded-lg shadow-xl border border-gray-100 min-w-[220px] overflow-hidden">
+                          {servicesDropdownItems.map(({ href, label }, index) => {
+                            const isActive = pathname === href || (href !== '/services' && pathname.startsWith(href));
+                            return (
+                              <Link
+                                key={href}
+                                href={href}
+                                className={`block px-4 py-3 font-medium transition-colors ${
+                                  isActive
+                                    ? 'bg-forest-100 text-forest-900 font-semibold'
+                                    : index % 2 === 0
+                                      ? 'bg-white text-forest-800 hover:bg-gray-50'
+                                      : 'bg-gray-50/80 text-forest-800 hover:bg-gray-100'
+                                }`}
+                              >
+                                {label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+                const href = item.href as string;
                 const isActive =
                   href === '/' ? pathname === '/' : pathname.startsWith(href);
                 return (
@@ -72,7 +160,7 @@ export default function Header() {
                         : 'text-forest-700 hover:text-forest-500'
                     }`}
                   >
-                    {label}
+                    {item.label}
                   </Link>
                 );
               })}
@@ -148,7 +236,63 @@ export default function Header() {
           </button>
         </div>
         <nav className="flex flex-col p-4 gap-1">
-          {navLinks.map(({ href, label }) => {
+          {navLinks.map((item) => {
+            if (item.href === null && 'isDropdown' in item && item.isDropdown) {
+              return (
+                <div key="our-services-mobile" className="flex flex-col gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setServicesAccordionOpen((prev) => !prev)}
+                    className={`flex items-center justify-between w-full px-4 py-3 rounded-xl font-medium transition-colors duration-300 text-left ${
+                      isServicesActive
+                        ? 'bg-forest-200/70 text-forest-900 font-semibold'
+                        : 'text-forest-700 hover:bg-forest-200/50 hover:text-forest-900'
+                    }`}
+                    aria-expanded={servicesAccordionOpen}
+                    aria-haspopup="true"
+                  >
+                    Our Services
+                    <svg
+                      className={`w-5 h-5 shrink-0 ml-2 transition-transform duration-300 ease-out ${servicesAccordionOpen ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                      servicesAccordionOpen ? 'grid-template-rows-[1fr]' : 'grid-template-rows-[0fr]'
+                    }`}
+                  >
+                    <div className="min-h-0 overflow-hidden">
+                      <div className="pl-6 pr-2 flex flex-col gap-0.5 py-1">
+                        {servicesDropdownItems.map(({ href, label }) => {
+                          const isActive = pathname === href || (href !== '/services' && pathname.startsWith(href));
+                          return (
+                            <Link
+                              key={href}
+                              href={href}
+                              onClick={closeMenu}
+                              className={`px-4 py-2.5 rounded-lg font-medium text-sm transition-colors ${
+                                isActive
+                                  ? 'bg-forest-200/70 text-forest-900 font-semibold'
+                                  : 'text-forest-700 hover:bg-forest-200/50'
+                              }`}
+                            >
+                              {label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+            const href = item.href as string;
             const isActive =
               href === '/' ? pathname === '/' : pathname.startsWith(href);
             return (
@@ -162,7 +306,7 @@ export default function Header() {
                     : 'text-forest-700 hover:bg-forest-200/50 hover:text-forest-900'
                 }`}
               >
-                {label}
+                {item.label}
               </Link>
             );
           })}
