@@ -89,7 +89,29 @@ Cards 1–4 same as teaser, plus:
 
 ## Snow Removal Service Page (/services/snow-removal)
 
-**Still using Unsplash placeholder images — no snow photos provided yet.**
+Stock images sourced from Pexels (free commercial license).
+
+| Section | File | Description |
+|---------|------|-------------|
+| Hero | `snow-house-winter.jpg` | Beautiful snow-covered residential home and yard |
+| Offer: Residential Plowing | `snow-driveway-house.jpg` | Man clearing snow from a building |
+| Offer: Commercial Plowing | `snow-cleared-driveway.jpg` | Small plow clearing a tree-lined snowy path |
+| Offer: Sidewalk Clearing | `snow-sidewalk-clearing.jpg` | Red shovel clearing a brick sidewalk |
+| Offer: De-icing / Salting | `snow-covered-house.jpg` | Snowblower clearing snow from a property |
+| Offer: 24/7 Emergency | `snow-residential-street.jpg` | Orange plow truck clearing a road |
+| Offer: Seasonal Contracts | `snow-house-winter.jpg` | Snow-covered residential property |
+| Process background | `snow-covered-house.jpg` | Snowblower clearing snow |
+| Why: Prompt Response | `snow-removal-truck.jpg` | Green/orange plow truck in heavy snow |
+| Why: Reliable Equipment | `snow-plow-road.jpg` | Snow plow equipment on road |
+| Why: Clear Communication | `snow-cleared-driveway.jpg` | Neatly cleared snowy path |
+| Why: One Company | `snow-driveway-house.jpg` | Man clearing snow from building |
+| CTA background | `snow-house-winter.jpg` | Snow-covered residential home |
+| Gallery 1 | `snow-house-winter.jpg` | Snow-covered residential property |
+| Gallery 2 | `snow-driveway-house.jpg` | Man clearing snow from building |
+| Gallery 3 | `snow-covered-house.jpg` | Snowblower clearing snow |
+| Gallery 4 | `snow-removal-truck.jpg` | Plow truck in heavy snow |
+| Gallery 5 | `snow-cleared-driveway.jpg` | Small plow on tree-lined path |
+| Gallery 6 | `snow-residential-street.jpg` | Plow truck clearing residential road |
 
 ## Unused Photos (available for swaps)
 

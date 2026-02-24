@@ -15,13 +15,13 @@ const offers = [
     icon: '🏠',
     title: 'Residential Plowing',
     description: 'Driveways and access areas cleared promptly after storms. We work around vehicles and obstacles with care.',
-    image: '/images/client/snow-shoveling-driveway.jpg',
+    image: '/images/client/snow-driveway-house.jpg',
   },
   {
     icon: '🏢',
     title: 'Commercial Plowing',
     description: 'Parking lots, loading zones, and walkways kept safe and open for your business. Scheduled or on-call service.',
-    image: '/images/client/snow-plowed-parking.jpg',
+    image: '/images/client/snow-cleared-driveway.jpg',
   },
   {
     icon: '🚶',
@@ -33,19 +33,19 @@ const offers = [
     icon: '🧂',
     title: 'De-icing / Salting',
     description: 'Strategic application of salt or ice melt to reduce slip hazards on driveways, steps, and walkways.',
-    image: '/images/client/snow-salting-walkway.jpg',
+    image: '/images/client/snow-covered-house.jpg',
   },
   {
     icon: '🔄',
     title: '24/7 Emergency Service',
     description: 'When storms hit at any hour, we respond. Priority dispatch for contract customers and emergency calls.',
-    image: '/images/client/snow-plow-road.jpg',
+    image: '/images/client/snow-residential-street.jpg',
   },
   {
     icon: '📋',
     title: 'Seasonal Contracts',
     description: 'Lock in your rate and priority service with a seasonal agreement. Per-push or unlimited options available.',
-    image: '/images/client/snow-covered-house.jpg',
+    image: '/images/client/snow-house-winter.jpg',
   },
 ];
 
@@ -57,19 +57,19 @@ const processSteps = [
 ];
 
 const whyChoose = [
-  { title: 'Prompt Response', description: 'We prioritize getting to you quickly after storms so you’re not stuck waiting for a plow.', image: '/images/client/heromain.jpg' },
-  { title: 'Reliable Equipment', description: 'Well-maintained plows and spreaders so we can handle heavy snow and long driveways.', image: '/images/client/Freshmowedlawn.jpg' },
-  { title: 'Clear Communication', description: 'You know when we’re coming and what to expect. No guessing or missed visits.', image: '/images/client/generallawnlandscape2.jpg' },
-  { title: 'One Company, Year-Round', description: 'Use us for lawn and landscape in the warm months and snow in the winter—one relationship.', image: '/images/client/drivewaybricking.JPG' },
+  { title: 'Prompt Response', description: 'We prioritize getting to you quickly after storms so you’re not stuck waiting for a plow.', image: '/images/client/snow-removal-truck.jpg' },
+  { title: 'Reliable Equipment', description: 'Well-maintained plows and spreaders so we can handle heavy snow and long driveways.', image: '/images/client/snow-plow-road.jpg' },
+  { title: 'Clear Communication', description: 'You know when we’re coming and what to expect. No guessing or missed visits.', image: '/images/client/snow-cleared-driveway.jpg' },
+  { title: 'One Company, Year-Round', description: 'Use us for lawn and landscape in the warm months and snow in the winter—one relationship.', image: '/images/client/snow-driveway-house.jpg' },
 ];
 
 const galleryImages = [
-  { src: '/images/client/heromain.jpg', alt: 'Residential property we service year-round' },
-  { src: '/images/client/GeneralLawnlandscape.jpg', alt: 'Maintained property with clear access' },
-  { src: '/images/client/generallawnlandscape2.jpg', alt: 'Corner lot property maintenance' },
-  { src: '/images/client/drivewaybricking.JPG', alt: 'Driveway and walkway area' },
-  { src: '/images/client/Freshmowedlawn.jpg', alt: 'Well-maintained residential lawn' },
-  { src: '/images/client/patiobricking4-2.JPG', alt: 'Residential property with walkways' },
+  { src: '/images/client/snow-house-winter.jpg', alt: 'Snow-covered residential property in winter' },
+  { src: '/images/client/snow-driveway-house.jpg', alt: 'Man clearing snow from a building after a storm' },
+  { src: '/images/client/snow-covered-house.jpg', alt: 'Snowblower clearing snow from a property' },
+  { src: '/images/client/snow-removal-truck.jpg', alt: 'Snow removal plow truck in heavy snow' },
+  { src: '/images/client/snow-cleared-driveway.jpg', alt: 'Small plow clearing a tree-lined path' },
+  { src: '/images/client/snow-residential-street.jpg', alt: 'Plow truck clearing a residential road' },
 ];
 
 export default function SnowRemovalPage() {
@@ -82,7 +82,7 @@ export default function SnowRemovalPage() {
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/images/client/heromain.jpg"
+              src="/images/client/snow-house-winter.jpg"
               alt="Snow removal"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -151,7 +151,7 @@ export default function SnowRemovalPage() {
       <section className="relative py-24 bg-[#111111] overflow-hidden">
         <CurveDivider position="top" fillClass="fill-[#111111]" />
         <div className="absolute inset-0">
-          <img src="/images/client/BackyardFencingandcenterbrick.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/client/snow-covered-house.jpg" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/85" />
         </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -254,7 +254,7 @@ export default function SnowRemovalPage() {
       <section className="relative py-24 bg-[#1a1a1a] overflow-hidden">
         <CurveDivider position="top" fillClass="fill-[#1a1a1a]" />
         <div className="absolute inset-0">
-          <img src="/images/client/BackyardFencingandcenterbrick.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/client/snow-house-winter.jpg" alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/80" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
