@@ -67,21 +67,21 @@ export default function Header() {
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg py-4'
+            ? 'bg-[#0a0a0a]/95 backdrop-blur-md shadow-lg shadow-black/20 py-4'
             : 'bg-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-forest-500 to-forest-700 rounded-2xl flex items-center justify-center rotate-12 transform hover:rotate-0 transition-transform duration-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-accent-light to-accent-dark rounded-2xl flex items-center justify-center rotate-12 transform hover:rotate-0 transition-transform duration-300">
                 <span className="text-2xl">🌿</span>
               </div>
               <div>
-                <h1 className="text-2xl font-display font-bold text-forest-900">
+                <h1 className="text-2xl font-display font-bold text-white">
                   Aesthetic Gardener
                 </h1>
-                <p className="text-xs text-sage-600 font-body">Holland, Michigan</p>
+                <p className="text-xs text-gray-400 font-body">Holland, Michigan</p>
               </div>
             </Link>
 
@@ -100,8 +100,8 @@ export default function Header() {
                         type="button"
                         className={`font-medium transition-colors duration-300 flex items-center gap-1 ${
                           isServicesActive
-                            ? 'text-forest-900 font-semibold underline underline-offset-4 decoration-2'
-                            : 'text-forest-700 hover:text-forest-500'
+                            ? 'text-accent-light font-semibold underline underline-offset-4 decoration-2'
+                            : 'text-gray-300 hover:text-accent-light'
                         }`}
                         aria-expanded={servicesDropdownOpen}
                         aria-haspopup="true"
@@ -123,7 +123,7 @@ export default function Header() {
                             : 'opacity-0 -translate-y-2 invisible pointer-events-none'
                         }`}
                       >
-                        <div className="bg-white rounded-lg shadow-xl border border-gray-100 min-w-[220px] overflow-hidden">
+                        <div className="bg-[#1a1a1a] rounded-lg shadow-xl border border-white/10 min-w-[220px] overflow-hidden">
                           {servicesDropdownItems.map(({ href, label }, index) => {
                             const isActive = pathname === href || (href !== '/services' && pathname.startsWith(href));
                             return (
@@ -132,10 +132,10 @@ export default function Header() {
                                 href={href}
                                 className={`block px-4 py-3 font-medium transition-colors ${
                                   isActive
-                                    ? 'bg-forest-100 text-forest-900 font-semibold'
+                                    ? 'bg-accent/10 text-accent-light font-semibold'
                                     : index % 2 === 0
-                                      ? 'bg-white text-forest-800 hover:bg-gray-50'
-                                      : 'bg-gray-50/80 text-forest-800 hover:bg-gray-100'
+                                      ? 'bg-[#1a1a1a] text-gray-300 hover:bg-white/5'
+                                      : 'bg-[#1e1e1e] text-gray-300 hover:bg-white/5'
                                 }`}
                               >
                                 {label}
@@ -156,8 +156,8 @@ export default function Header() {
                     href={href}
                     className={`font-medium transition-colors duration-300 ${
                       isActive
-                        ? 'text-forest-900 font-semibold underline underline-offset-4 decoration-2'
-                        : 'text-forest-700 hover:text-forest-500'
+                        ? 'text-accent-light font-semibold underline underline-offset-4 decoration-2'
+                        : 'text-gray-300 hover:text-accent-light'
                     }`}
                   >
                     {item.label}
@@ -166,7 +166,7 @@ export default function Header() {
               })}
               <a
                 href="tel:+16162182698"
-                className="inline-flex items-center gap-2 border-2 border-forest-600 text-forest-700 px-5 py-2.5 rounded-full font-semibold hover:bg-forest-50 hover:border-forest-700 transition-all duration-300"
+                className="inline-flex items-center gap-2 border-2 border-accent text-accent-light px-5 py-2.5 rounded-full font-semibold hover:bg-accent/10 transition-all duration-300"
                 aria-label="Call (616) 218-2698"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -175,8 +175,8 @@ export default function Header() {
                 Call
               </a>
               <Link
-                href="/contact"
-                className="bg-gradient-to-r from-forest-600 to-forest-500 text-white px-6 py-3 rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300"
+                href="/contact#quote-form"
+                className="bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent-light hover:shadow-xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300"
               >
                 Get Quote
               </Link>
@@ -184,7 +184,7 @@ export default function Header() {
 
             <button
               type="button"
-              className="md:hidden p-2 text-forest-700 hover:bg-forest-100 rounded-lg transition-colors"
+              className="md:hidden p-2 text-gray-300 hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
@@ -209,27 +209,27 @@ export default function Header() {
       {/* Mobile menu backdrop */}
       <div
         role="presentation"
-        className={`fixed inset-0 z-[60] bg-forest-900/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
-      {/* Mobile menu panel - slides in from right */}
+      {/* Mobile menu panel */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[70] w-[min(320px,85vw)] bg-gradient-to-b from-forest-50 to-forest-100 border-l border-forest-200 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-[min(320px,85vw)] bg-gradient-to-b from-[#111111] to-[#0a0a0a] border-l border-white/10 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        <div className="flex justify-between items-center p-5 border-b border-forest-200/80">
-          <span className="font-display text-lg font-semibold text-forest-900">Menu</span>
+        <div className="flex justify-between items-center p-5 border-b border-white/10">
+          <span className="font-display text-lg font-semibold text-white">Menu</span>
           <button
             type="button"
             onClick={closeMenu}
-            className="p-2.5 text-forest-700 hover:bg-forest-200/60 rounded-xl transition-colors"
+            className="p-2.5 text-gray-300 hover:bg-white/10 rounded-xl transition-colors"
             aria-label="Close menu"
           >
             <CloseIcon />
@@ -245,8 +245,8 @@ export default function Header() {
                     onClick={() => setServicesAccordionOpen((prev) => !prev)}
                     className={`flex items-center justify-between w-full px-4 py-3 rounded-xl font-medium transition-colors duration-300 text-left ${
                       isServicesActive
-                        ? 'bg-forest-200/70 text-forest-900 font-semibold'
-                        : 'text-forest-700 hover:bg-forest-200/50 hover:text-forest-900'
+                        ? 'bg-accent/10 text-accent-light font-semibold'
+                        : 'text-gray-300 hover:bg-white/5 hover:text-white'
                     }`}
                     aria-expanded={servicesAccordionOpen}
                     aria-haspopup="true"
@@ -278,8 +278,8 @@ export default function Header() {
                               onClick={closeMenu}
                               className={`px-4 py-2.5 rounded-lg font-medium text-sm transition-colors ${
                                 isActive
-                                  ? 'bg-forest-200/70 text-forest-900 font-semibold'
-                                  : 'text-forest-700 hover:bg-forest-200/50'
+                                  ? 'bg-accent/10 text-accent-light font-semibold'
+                                  : 'text-gray-400 hover:bg-white/5 hover:text-gray-200'
                               }`}
                             >
                               {label}
@@ -302,8 +302,8 @@ export default function Header() {
                 onClick={closeMenu}
                 className={`px-4 py-3 rounded-xl font-medium transition-colors duration-300 ${
                   isActive
-                    ? 'bg-forest-200/70 text-forest-900 font-semibold'
-                    : 'text-forest-700 hover:bg-forest-200/50 hover:text-forest-900'
+                    ? 'bg-accent/10 text-accent-light font-semibold'
+                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -313,7 +313,7 @@ export default function Header() {
           <a
             href="tel:+16162182698"
             onClick={closeMenu}
-            className="mt-4 mx-2 flex items-center justify-center gap-2 border-2 border-forest-600 text-forest-700 px-6 py-3.5 rounded-full font-semibold hover:bg-forest-100 transition-all duration-300"
+            className="mt-4 mx-2 flex items-center justify-center gap-2 border-2 border-accent text-accent-light px-6 py-3.5 rounded-full font-semibold hover:bg-accent/10 transition-all duration-300"
             aria-label="Call (616) 218-2698"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -322,9 +322,9 @@ export default function Header() {
             Call
           </a>
           <Link
-            href="/contact"
+            href="/contact#quote-form"
             onClick={closeMenu}
-            className="mt-3 mx-2 text-center bg-gradient-to-r from-forest-600 to-forest-500 text-white px-6 py-3.5 rounded-full font-semibold hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+            className="mt-3 mx-2 text-center bg-accent text-white px-6 py-3.5 rounded-full font-semibold hover:bg-accent-light hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
           >
             Get Quote
           </Link>

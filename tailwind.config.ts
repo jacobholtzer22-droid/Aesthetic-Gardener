@@ -9,6 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        dark: {
+          DEFAULT: '#0a0a0a',
+          50: '#1e1e1e',
+          100: '#1a1a1a',
+          200: '#111111',
+          300: '#0a0a0a',
+        },
+        accent: {
+          DEFAULT: '#22c55e',
+          light: '#4ade80',
+          dark: '#16a34a',
+        },
         earth: {
           50: '#f8f6f3',
           100: '#ebe6dd',

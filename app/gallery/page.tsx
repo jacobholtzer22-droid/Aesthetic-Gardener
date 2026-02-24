@@ -13,120 +13,120 @@ interface Project {
   title: string;
   category: 'Landscaping' | 'Hardscaping' | 'Lawn Care';
   description?: string;
-  rowSpan?: boolean; // for masonry-style tall cards
+  rowSpan?: boolean;
 }
 
 const PROJECTS: Project[] = [
   {
     id: 1,
-    url: 'https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=600&h=800&fit=crop',
-    title: 'Modern Patio Design',
+    url: '/images/client/PAtiobricking3.JPG',
+    title: 'Patio & Fire Pit',
     category: 'Hardscaping',
-    description: 'Custom stone patio with integrated seating.',
+    description: 'Paver patio with built-in fire pit and retaining wall steps.',
     rowSpan: true,
   },
   {
     id: 2,
-    url: 'https://images.unsplash.com/photo-1599629954294-1470f0c6d14f?w=600&h=400&fit=crop',
-    title: 'Lush Garden Paradise',
+    url: '/images/client/gardenbricking2-2.JPG',
+    title: 'Garden Landscape Design',
     category: 'Landscaping',
-    description: 'Year-round color and texture.',
+    description: 'Flagstone path with flowering shrubs and perennials.',
     rowSpan: false,
   },
   {
     id: 3,
-    url: 'https://images.unsplash.com/photo-1584738766473-61c083514bf4?w=600&h=800&fit=crop',
-    title: 'Custom Walkway',
+    url: '/images/client/Patiowoodwalkway.jpg',
+    title: 'Custom Wood Walkway',
     category: 'Hardscaping',
-    description: 'Flagstone path through perennial borders.',
+    description: 'Timber boardwalk with retaining wall and fern plantings.',
     rowSpan: true,
   },
   {
     id: 4,
-    url: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&h=400&fit=crop',
-    title: 'Perfect Lawn Care',
+    url: '/images/client/Freshmowedlawn.jpg',
+    title: 'Professional Lawn Mowing',
     category: 'Lawn Care',
-    description: 'Consistent mowing and edging program.',
+    description: 'Clean mowing stripes on a large residential property.',
     rowSpan: false,
   },
   {
     id: 5,
-    url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=600&fit=crop',
-    title: 'Outdoor Living Space',
+    url: '/images/client/gardening.JPG',
+    title: 'Front Yard Flower Beds',
     category: 'Landscaping',
-    description: 'Plantings and lighting for evening use.',
+    description: 'Colorful annual and perennial beds along the walkway.',
     rowSpan: false,
   },
   {
     id: 6,
-    url: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=600&h=600&fit=crop',
-    title: 'Stone Retaining Wall',
+    url: '/images/client/patiobricking4.JPG',
+    title: 'Terraced Retaining Walls',
     category: 'Hardscaping',
-    description: 'Natural stone wall with planting pockets.',
+    description: 'Multi-level brick retaining walls with iron railing.',
     rowSpan: false,
   },
   {
     id: 7,
-    url: 'https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&h=800&fit=crop',
-    title: 'Backyard Garden Oasis',
+    url: '/images/client/gardenbricking2.JPG',
+    title: 'Flagstone Garden Path',
     category: 'Landscaping',
-    description: 'Layered beds and winding paths.',
+    description: 'Natural stone path with bench and boulder accents.',
     rowSpan: true,
   },
   {
     id: 8,
-    url: 'https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?w=600&h=400&fit=crop',
-    title: 'Green Lawn Revival',
+    url: '/images/client/GeneralLawnlandscape.jpg',
+    title: 'Lawn & Hedge Maintenance',
     category: 'Lawn Care',
-    description: 'Aeration, seeding, and fertilization.',
+    description: 'Arborvitae hedge with maintained lawn and rock border.',
     rowSpan: false,
   },
   {
     id: 9,
-    url: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=600&fit=crop',
-    title: 'Driveway Pavers',
+    url: '/images/client/drivewaybricking.JPG',
+    title: 'Driveway & Landscape Borders',
     category: 'Hardscaping',
-    description: 'Elegant paver driveway and apron.',
+    description: 'Concrete and brick driveway with planting borders.',
     rowSpan: false,
   },
   {
     id: 10,
-    url: 'https://images.unsplash.com/photo-1598902108854-10e335adac99?w=600&h=400&fit=crop',
-    title: 'Shade Garden',
+    url: '/images/client/BackyardFencingandcenterbrick.jpg',
+    title: 'Backyard Fencing & Beds',
     category: 'Landscaping',
-    description: 'Hostas, ferns, and woodland plants.',
+    description: 'Split-rail fence with center brick bed and gravel paths.',
     rowSpan: false,
   },
   {
     id: 11,
-    url: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&h=800&fit=crop',
-    title: 'Front Yard Makeover',
-    category: 'Landscaping',
-    description: 'Curb appeal with new beds and mulch.',
+    url: '/images/client/patiobricking.jpg',
+    title: 'Brick Patio Installation',
+    category: 'Hardscaping',
+    description: 'Herringbone brick patio with curved balustrade wall.',
     rowSpan: true,
   },
   {
     id: 12,
-    url: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=600&fit=crop',
-    title: 'Seasonal Lawn Program',
+    url: '/images/client/generallawnlandscape2.jpg',
+    title: 'Corner Lot Maintenance',
     category: 'Lawn Care',
-    description: 'Spring and fall treatments.',
+    description: 'Arborvitae privacy screen with maintained lawn.',
     rowSpan: false,
   },
   {
     id: 13,
-    url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop',
-    title: 'Fire Pit & Seating',
+    url: '/images/client/Walkwaylandscapping.JPG',
+    title: 'Walkway & Retaining Wall',
     category: 'Hardscaping',
-    description: 'Circular patio with built-in fire feature.',
+    description: 'Stone steps with retaining wall and mulched beds.',
     rowSpan: false,
   },
   {
     id: 14,
-    url: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=600&fit=crop',
-    title: 'Native Plant Garden',
+    url: '/images/client/gardenbricking2-3.JPG',
+    title: 'Residential Landscape',
     category: 'Landscaping',
-    description: 'Low-maintenance native perennials.',
+    description: 'Front yard design with perennials and stone accents.',
     rowSpan: false,
   },
 ];
@@ -147,17 +147,21 @@ export default function GalleryPage() {
     <main className="min-h-screen">
       <Header />
       <div className="pt-24">
-        <section className="relative py-24 bg-gradient-to-b from-sage-50/50 to-white overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative py-24 bg-[#0a0a0a] overflow-hidden">
+          <div className="absolute inset-0">
+            <img src="/images/client/gardenbricking2-2.JPG" alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/80" />
+          </div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Page title & subtitle */}
             <div className="text-center mb-12 animate-slide-up">
-              <span className="inline-block bg-forest-100 text-forest-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <span className="inline-block bg-accent/10 text-accent-light px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 Our Portfolio
               </span>
-              <h1 className="font-display text-5xl lg:text-6xl font-bold text-forest-900 mb-6">
+              <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mb-6">
                 Our Work
               </h1>
-              <p className="text-xl text-sage-700 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                 Browse our portfolio of completed projects
               </p>
             </div>
@@ -170,8 +174,8 @@ export default function GalleryPage() {
                   onClick={() => setActiveFilter(tab)}
                   className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                     activeFilter === tab
-                      ? 'bg-forest-600 text-white shadow-lg shadow-forest-600/25 scale-105'
-                      : 'bg-white text-forest-700 border-2 border-forest-200 hover:border-forest-400 hover:bg-forest-50'
+                      ? 'bg-accent text-white shadow-lg shadow-accent/25 scale-105'
+                      : 'bg-[#1a1a1a] text-gray-300 border-2 border-white/10 hover:border-accent/40 hover:bg-[#1e1e1e]'
                   }`}
                 >
                   {tab}
@@ -184,7 +188,7 @@ export default function GalleryPage() {
               {filteredProjects.map((project, index) => (
                 <div
                   key={project.id}
-                  className={`group relative overflow-hidden rounded-3xl shadow-lg card-hover animate-fade-in ${STAGGER_CLASSES[index % 6]} ${
+                  className={`group relative overflow-hidden rounded-3xl shadow-lg shadow-black/30 card-hover animate-fade-in ${STAGGER_CLASSES[index % 6]} ${
                     project.rowSpan ? 'md:row-span-2' : ''
                   }`}
                 >
@@ -196,17 +200,17 @@ export default function GalleryPage() {
                       alt={project.title}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-forest-900/85 via-forest-900/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
                       <div className="transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <span className="inline-block bg-forest-500 text-white px-3 py-1 rounded-full text-xs font-semibold mb-2 w-fit">
+                        <span className="inline-block bg-accent text-white px-3 py-1 rounded-full text-xs font-semibold mb-2 w-fit">
                           {project.category}
                         </span>
                         <h3 className="font-display text-2xl font-bold text-white mb-1">
                           {project.title}
                         </h3>
                         {project.description && (
-                          <p className="text-sage-200 text-sm leading-relaxed">
+                          <p className="text-gray-300 text-sm leading-relaxed">
                             {project.description}
                           </p>
                         )}
@@ -218,12 +222,11 @@ export default function GalleryPage() {
             </div>
 
             {filteredProjects.length === 0 && (
-              <p className="text-center text-sage-600 py-12">
+              <p className="text-center text-gray-400 py-12">
                 No projects in this category yet. Check back soon!
               </p>
             )}
           </div>
-          <CurveDivider position="bottom" fillClass="fill-forest-50" />
         </section>
       </div>
       <Footer />

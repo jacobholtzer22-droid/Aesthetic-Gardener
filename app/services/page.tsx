@@ -14,6 +14,7 @@ const services = [
     icon: '🌱',
     name: 'Landscaping Design',
     slug: '/services/landscaping-design',
+    image: '/images/client/gardening.JPG',
     description:
       'Transform your property with custom garden and planting design, tree installation, and complete landscape makeovers. Our team works with you to bring your vision to life, from initial concept to finished installation.',
     included: [
@@ -24,12 +25,13 @@ const services = [
       'Garden bed design & installation',
       'Professional design consultations',
     ],
-    gradient: 'from-forest-500 to-forest-600',
+    gradient: 'from-accent to-accent-dark',
   },
   {
     icon: '🌿',
     name: 'Lawn Care & Maintenance',
     slug: '/services/lawn-care',
+    image: '/images/client/Freshmowedlawn.jpg',
     description:
       'Keep your lawn lush, green, and healthy all season long with our comprehensive maintenance programs. We use proven techniques and quality products to ensure your yard looks its best from spring through fall.',
     included: [
@@ -40,12 +42,13 @@ const services = [
       'Trimming & border maintenance',
       'Ongoing care plans',
     ],
-    gradient: 'from-sage-500 to-sage-600',
+    gradient: 'from-accent-light to-accent',
   },
   {
     icon: '❄️',
     name: 'Snow Removal',
     slug: '/services/snow-removal',
+    image: '/images/client/GeneralLawnlandscape.jpg',
     description:
       'Count on reliable plowing and de-icing services to keep your driveway, walkways, and property safe and accessible all winter. We offer flexible seasonal contracts and one-time service for Holland and West Michigan.',
     included: [
@@ -56,12 +59,13 @@ const services = [
       'Prompt response after storms',
       'Commercial property service',
     ],
-    gradient: 'from-earth-500 to-earth-600',
+    gradient: 'from-accent to-accent-dark',
   },
   {
     icon: '🪨',
     name: 'Hardscaping',
     slug: '/services/hardscaping',
+    image: '/images/client/patiobricking.jpg',
     description:
       'Add lasting structure and beauty with patios, walkways, retaining walls, and outdoor living spaces. We use quality materials and expert craftsmanship so your hardscape looks great and stands the test of time.',
     included: [
@@ -72,11 +76,12 @@ const services = [
       'Decorative stone installation',
       'Drainage-integrated design',
     ],
-    gradient: 'from-forest-600 to-forest-700',
+    gradient: 'from-accent-dark to-accent',
   },
   {
     icon: '💧',
     name: 'Irrigation & Drainage Solutions',
+    image: '/images/client/Walkwaylandscapping.JPG',
     description:
       'Ensure your landscape gets the right amount of water while protecting your property from standing water and erosion. We design and install efficient irrigation systems and solve drainage issues with smart, lasting solutions.',
     included: [
@@ -87,11 +92,12 @@ const services = [
       'Water management consulting',
       'System repair & winterization',
     ],
-    gradient: 'from-forest-500 to-sage-600',
+    gradient: 'from-accent-light to-accent-dark',
   },
   {
     icon: '🍂',
     name: 'Spring & Fall Cleanups',
+    image: '/images/client/BackyardFencingandcenterbrick.jpg',
     description:
       'Start and end each growing season right with thorough property cleanups. We remove debris, trim back perennials, clear beds, and prepare your landscape so it looks tidy and is ready for the season ahead.',
     included: [
@@ -102,14 +108,14 @@ const services = [
       'Gutter area cleanup',
       'Seasonal bed preparation',
     ],
-    gradient: 'from-sage-500 to-earth-500',
+    gradient: 'from-accent to-accent-light',
   },
 ];
 
 function CheckIcon() {
   return (
     <svg
-      className="w-5 h-5 text-forest-500 shrink-0"
+      className="w-5 h-5 text-accent-light shrink-0"
       fill="currentColor"
       viewBox="0 0 20 20"
     >
@@ -127,33 +133,22 @@ export default function ServicesPage() {
     <main className="min-h-screen">
       <Header />
 
-      <section className="relative pt-28 pb-24 bg-white">
-        {/* Top curve */}
-        <div className="curve-top">
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-              className="fill-white"
-            />
-          </svg>
+      <section className="relative pt-28 pb-24 bg-[#0a0a0a] overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/client/patiobricking4-2.JPG" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black/80" />
         </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-slide-up">
-            <h1 className="font-display text-5xl lg:text-6xl font-bold text-forest-900 mb-4">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-slide-up relative">
+            <h1 className="font-display text-5xl lg:text-6xl font-bold text-white mb-4">
               Our Services
             </h1>
-            <p className="text-xl text-sage-700 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               From design and installation to seasonal maintenance and snow removal,
               we offer full-service outdoor solutions for homes and businesses in Holland
               and West Michigan.
             </p>
-            <p className="text-lg text-sage-600 max-w-3xl mx-auto mt-6">
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto mt-6">
               Explore our comprehensive range of landscaping services below, or click on any service to learn more about what we offer.
             </p>
           </div>
@@ -162,27 +157,35 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br from-white to-sage-50/50 rounded-3xl p-8 shadow-lg border border-sage-100 card-hover animate-fade-in ${
+                className={`bg-[#1a1a1a] rounded-3xl p-8 shadow-lg border border-white/10 card-hover animate-fade-in ${
                   ['stagger-1', 'stagger-2', 'stagger-3', 'stagger-4', 'stagger-5', 'stagger-6'][index]
                 }`}
               >
+                <div className="relative h-48 -mx-8 -mt-8 mb-6 rounded-t-3xl overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
+                </div>
                 <div
                   className={`w-16 h-16 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-6 transform hover:rotate-12 transition-transform duration-300`}
                 >
                   <span className="text-3xl">{service.icon}</span>
                 </div>
 
-                <h2 className="font-display text-2xl font-bold text-forest-900 mb-4">
+                <h2 className="font-display text-2xl font-bold text-white mb-4">
                   {service.name}
                 </h2>
 
-                <p className="text-sage-700 mb-6 leading-relaxed">
+                <p className="text-gray-400 mb-6 leading-relaxed">
                   {service.description}
                 </p>
 
                 <ul className="space-y-2 mb-8">
                   {service.included.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sage-600">
+                    <li key={idx} className="flex items-start gap-2 text-gray-400">
                       <CheckIcon />
                       <span>{item}</span>
                     </li>
@@ -190,8 +193,8 @@ export default function ServicesPage() {
                 </ul>
 
                 <Link
-                  href={'slug' in service && service.slug ? service.slug : '/contact'}
-                  className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-forest-600 to-forest-500 text-white px-6 py-4 rounded-full font-semibold hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                  href={'slug' in service && service.slug ? service.slug : '/contact#quote-form'}
+                  className="inline-flex items-center justify-center gap-2 w-full bg-accent text-white px-6 py-4 rounded-full font-semibold hover:bg-accent-light hover:shadow-xl hover:shadow-accent/20 hover:scale-[1.02] transition-all duration-300"
                 >
                   {'slug' in service && service.slug ? 'Learn More' : 'Request Quote'}
                   <svg

@@ -6,13 +6,13 @@ interface ServiceBreadcrumbsProps {
 
 export default function ServiceBreadcrumbs({ serviceName }: ServiceBreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-sage-200/60 bg-white/80 backdrop-blur-sm">
+    <nav aria-label="Breadcrumb" className="border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <ol className="flex flex-wrap items-center gap-x-2 text-sm text-sage-600">
+        <ol className="flex flex-wrap items-center gap-x-2 text-sm text-gray-400">
           <li>
             <Link
               href="/"
-              className="hover:text-forest-600 transition-colors"
+              className="hover:text-accent-light transition-colors"
             >
               Home
             </Link>
@@ -21,14 +21,14 @@ export default function ServiceBreadcrumbs({ serviceName }: ServiceBreadcrumbsPr
             <span>›</span>
             <Link
               href="/services"
-              className="hover:text-forest-600 transition-colors"
+              className="hover:text-accent-light transition-colors"
             >
               Our Services
             </Link>
           </li>
           <li className="flex items-center gap-x-2" aria-current="page">
             <span>›</span>
-            <span className="text-sage-600 font-medium">{serviceName}</span>
+            <span className="text-gray-300 font-medium">{serviceName}</span>
           </li>
         </ol>
       </div>

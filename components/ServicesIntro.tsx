@@ -3,10 +3,10 @@
 import Link from 'next/link';
 
 const services = [
-  { icon: '🌱', title: 'Landscaping Design' },
-  { icon: '🌿', title: 'Lawn Care & Maintenance' },
-  { icon: '❄️', title: 'Snow Removal' },
-  { icon: '🪨', title: 'Hardscaping' },
+  { icon: '🌱', title: 'Landscaping Design', image: '/images/client/gardening.JPG', href: '/services/landscaping-design' },
+  { icon: '🌿', title: 'Lawn Care & Maintenance', image: '/images/client/Freshmowedlawn.jpg', href: '/services/lawn-care' },
+  { icon: '❄️', title: 'Snow Removal', image: '/images/client/GeneralLawnlandscape.jpg', href: '/services/snow-removal' },
+  { icon: '🪨', title: 'Hardscaping', image: '/images/client/patiobricking.jpg', href: '/services/hardscaping' },
 ];
 
 type ServicesIntroProps = {
@@ -21,38 +21,43 @@ export default function ServicesIntro({
   description = 'From design to maintenance, we offer comprehensive landscaping services tailored to your vision and lifestyle.',
 }: ServicesIntroProps) {
   return (
-    <section className="relative py-24 bg-white">
+    <section className="relative py-24 bg-[#111111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-slide-up">
-          <span className="inline-block bg-forest-100 text-forest-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-block bg-accent/10 text-accent-light px-4 py-2 rounded-full text-sm font-semibold mb-4">
             {sectionLabel}
           </span>
-          <h2 className="font-display text-5xl lg:text-6xl font-bold text-forest-900 mb-6">
+          <h2 className="font-display text-5xl lg:text-6xl font-bold text-white mb-6">
             {heading}
           </h2>
-          <p className="text-xl text-sage-700 max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
             {description}
           </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-gradient-to-br from-white to-sage-50/50 rounded-2xl p-6 shadow-lg border border-sage-100 text-center"
+              href={service.href}
+              className="group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
             >
-              <span className="text-3xl block mb-3">{service.icon}</span>
-              <h3 className="font-display text-lg font-bold text-forest-900">
-                {service.title}
-              </h3>
-            </div>
+              <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300" />
+              <div className="relative flex flex-col items-center justify-center h-full p-4">
+                <span className="text-3xl block mb-3">{service.icon}</span>
+                <h3 className="font-display text-lg font-bold text-white text-center">
+                  {service.title}
+                </h3>
+              </div>
+            </Link>
           ))}
         </div>
 
         <div className="text-center">
           <Link
             href="/services"
-            className="inline-block bg-gradient-to-r from-forest-600 to-forest-500 text-white px-10 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="inline-block bg-accent text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300"
           >
             View All Services
           </Link>

@@ -20,14 +20,14 @@ export default function Breadcrumbs() {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="relative border-b border-sage-200/60 bg-white/80 backdrop-blur-sm"
+      className="relative border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-sm"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <ol className="flex flex-wrap items-center gap-2 text-sm">
           <li>
             <Link
               href="/"
-              className="text-sage-600 hover:text-forest-600 transition-colors"
+              className="text-gray-400 hover:text-accent-light transition-colors"
             >
               Home
             </Link>
@@ -39,17 +39,17 @@ export default function Breadcrumbs() {
 
             return (
               <li key={href} className="flex items-center gap-2">
-                <span className="text-sage-400" aria-hidden>
+                <span className="text-gray-600" aria-hidden>
                   /
                 </span>
                 {isLast ? (
-                  <span className="font-semibold text-forest-900" aria-current="page">
+                  <span className="font-semibold text-white" aria-current="page">
                     {label}
                   </span>
                 ) : (
                   <Link
                     href={href}
-                    className="text-sage-600 hover:text-forest-600 transition-colors"
+                    className="text-gray-400 hover:text-accent-light transition-colors"
                   >
                     {label}
                   </Link>
