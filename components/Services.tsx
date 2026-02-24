@@ -25,7 +25,7 @@ export default function Services() {
       description:
         'Reliable plowing and de-icing services to keep your property safe and accessible.',
       features: ['Residential Plowing', 'De-icing Services', 'Seasonal Contracts'],
-      image: '/images/client/GeneralLawnlandscape.jpg',
+      image: '/images/client/snow-house-winter.jpg',
       href: '/services/snow-removal',
     },
     {

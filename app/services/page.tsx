@@ -48,7 +48,7 @@ const services = [
     icon: '❄️',
     name: 'Snow Removal',
     slug: '/services/snow-removal',
-    image: '/images/client/GeneralLawnlandscape.jpg',
+    image: '/images/client/snow-house-winter.jpg',
     description:
       'Count on reliable plowing and de-icing services to keep your driveway, walkways, and property safe and accessible all winter. We offer flexible seasonal contracts and one-time service for Holland and West Michigan.',
     included: [

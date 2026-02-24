@@ -5,7 +5,7 @@ import Link from 'next/link';
 const services = [
   { icon: '🌱', title: 'Landscaping Design', image: '/images/client/gardening.JPG', href: '/services/landscaping-design' },
   { icon: '🌿', title: 'Lawn Care & Maintenance', image: '/images/client/Freshmowedlawn.jpg', href: '/services/lawn-care' },
-  { icon: '❄️', title: 'Snow Removal', image: '/images/client/GeneralLawnlandscape.jpg', href: '/services/snow-removal' },
+  { icon: '❄️', title: 'Snow Removal', image: '/images/client/snow-house-winter.jpg', href: '/services/snow-removal' },
   { icon: '🪨', title: 'Hardscaping', image: '/images/client/patiobricking.jpg', href: '/services/hardscaping' },
 ];
 
