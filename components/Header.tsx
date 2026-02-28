@@ -73,10 +73,12 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent-light to-accent-dark rounded-2xl flex items-center justify-center rotate-12 transform hover:rotate-0 transition-transform duration-300">
-                <span className="text-2xl">🌿</span>
-              </div>
+            <Link href="/" className="flex items-center space-x-3">
+              <img
+                src="/logo.png"
+                alt="Aesthetic Gardener"
+                className="h-12 w-auto object-contain"
+              />
               <div>
                 <h1 className="text-2xl font-display font-bold text-white">
                   Aesthetic Gardener

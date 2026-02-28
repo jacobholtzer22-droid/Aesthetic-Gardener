@@ -29,10 +29,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent-light to-accent-dark rounded-2xl flex items-center justify-center">
-                <span className="text-2xl">🌿</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img
+                src="/logo.png"
+                alt="Aesthetic Gardener"
+                className="h-12 w-auto object-contain"
+              />
               <div>
                 <h3 className="text-xl font-display font-bold">Aesthetic Gardener</h3>
                 <p className="text-xs text-gray-500">Holland, Michigan</p>
