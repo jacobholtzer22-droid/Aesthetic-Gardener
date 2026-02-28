@@ -78,8 +78,10 @@ export default function Header() {
               <Image
                 src="/logo.png"
                 alt="Aesthetic Gardener"
-                width={48}
-                height={48}
+                width={192}
+                height={128}
+                quality={95}
+                priority
                 className="h-12 w-auto object-contain"
               />
               <div>
