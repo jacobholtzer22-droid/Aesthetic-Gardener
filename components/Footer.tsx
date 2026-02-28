@@ -168,6 +168,17 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+          <p className="text-xs text-gray-500 text-center mt-4 w-full">
+            Website by{' '}
+            <a
+              href="https://alignandacquire.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent-light transition-colors"
+            >
+              Align & Acquire
+            </a>
+          </p>
         </div>
       </div>
     </footer>
