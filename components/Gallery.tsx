@@ -1,4 +1,6 @@
-'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export default function Gallery() {
   const projects = [
@@ -61,10 +63,15 @@ export default function Gallery() {
                 gridRow: index === 0 || index === 2 ? 'span 2' : 'span 1',
               }}
             >
-              <img
+              <Image
                 src={project.url}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                alt={`${project.title} - ${project.category} by Aesthetic Gardener Holland MI`}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -80,9 +87,12 @@ export default function Gallery() {
         </div>
 
         <div className="text-center mt-16">
-          <button className="bg-accent text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300">
+          <Link
+            href="/gallery"
+            className="inline-block bg-accent text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300"
+          >
             View Full Gallery
-          </button>
+          </Link>
         </div>
       </div>
     </section>

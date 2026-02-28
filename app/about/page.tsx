@@ -1,13 +1,21 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import CurveDivider from '@/components/CurveDivider';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export const metadata: Metadata = {
-  title: 'About Us | Aesthetic Gardener',
+  title: 'About Us',
   description:
-    'Learn about Aesthetic Gardener—crafting outdoor excellence across West Michigan since 2004. Our story, mission, and why clients trust us.',
+    'Aesthetic Gardener has been crafting outdoor excellence across Holland MI and West Michigan since 2004. Learn our story, mission, and why clients trust us for landscaping.',
+  openGraph: {
+    title: 'About Aesthetic Gardener | 21+ Years in Holland MI',
+    description:
+      'Learn about Aesthetic Gardener—crafting outdoor excellence across West Michigan since 2004. Our story, mission, and why clients trust us.',
+    url: '/about',
+  },
 };
 
 const testimonials = [
@@ -99,11 +107,16 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative animate-slide-in-right stagger-2 order-1 lg:order-2">
-              <div className="relative rounded-[3rem] overflow-hidden shadow-2xl shadow-black/40">
-                <img
+              <div className="relative rounded-[3rem] overflow-hidden shadow-2xl shadow-black/40 h-[500px] lg:h-[600px]">
+                <Image
                   src="/images/client/gardenbricking2-2.JPG"
-                  alt="About Aesthetic Gardener"
-                  className="w-full h-[500px] lg:h-[600px] object-cover"
+                  alt="Professional landscaping and garden design by Aesthetic Gardener in Holland Michigan"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
               </div>
               <div className="absolute -top-8 -right-8 w-48 h-48 bg-accent/5 blob" />
@@ -152,11 +165,16 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40">
-              <img
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-black/40 h-[500px]">
+              <Image
                 src="/images/client/Woodwalkwaybuild.JPG"
-                alt="Aesthetic Gardener at work"
-                className="w-full h-[500px] object-cover"
+                alt="Wood walkway installation by Aesthetic Gardener - West Michigan landscaping"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
             </div>
           </div>
@@ -169,7 +187,7 @@ export default function AboutPage() {
       <section className="relative py-24 bg-[#1a1a1a] overflow-hidden">
         <CurveDivider position="top" fillClass="fill-[#1a1a1a]" />
         <div className="absolute inset-0">
-          <img src="/images/client/gardenbricking2.JPG" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/gardenbricking2.JPG" alt="Garden landscape design and flagstone path - Holland MI" fill sizes="100vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/75" />
         </div>
 
@@ -210,10 +228,10 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-3xl shadow-lg group text-center animate-fade-in"
+                className="relative overflow-hidden rounded-3xl shadow-lg group text-center animate-fade-in aspect-[4/3]"
                 style={{ animationDelay: `${(index + 1) * 0.1}s` }}
               >
-                <img src={value.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                <Image src={value.image} alt={`${value.title} - Aesthetic Gardener Holland MI`} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
                 <div className="relative p-6">
                   <div className="w-20 h-20 bg-accent/10 rounded-3xl flex items-center justify-center mx-auto mb-4 transform hover:rotate-12 transition-transform duration-300">
@@ -255,17 +273,17 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-4 lg:grid-cols-8 gap-2 mt-12 max-w-4xl mx-auto">
             {[
-              '/images/client/PAtiobricking3.JPG',
-              '/images/client/gardening.JPG',
-              '/images/client/Freshmowedlawn.jpg',
-              '/images/client/patiobricking.jpg',
-              '/images/client/gardenbricking2-2.JPG',
-              '/images/client/Patiowoodwalkway.jpg',
-              '/images/client/drivewaybricking.JPG',
-              '/images/client/patiobricking4.JPG',
-            ].map((src, i) => (
-              <div key={i} className="aspect-square rounded-xl overflow-hidden">
-                <img src={src} alt="" className="w-full h-full object-cover opacity-60 hover:opacity-100 transition-opacity duration-300" />
+              { src: '/images/client/PAtiobricking3.JPG', alt: 'Patio hardscaping - Aesthetic Gardener team' },
+              { src: '/images/client/gardening.JPG', alt: 'Garden design Holland Michigan' },
+              { src: '/images/client/Freshmowedlawn.jpg', alt: 'Lawn care West Michigan' },
+              { src: '/images/client/patiobricking.jpg', alt: 'Brick patio installation' },
+              { src: '/images/client/gardenbricking2-2.JPG', alt: 'Landscape design project' },
+              { src: '/images/client/Patiowoodwalkway.jpg', alt: 'Wood walkway construction' },
+              { src: '/images/client/drivewaybricking.JPG', alt: 'Driveway hardscaping' },
+              { src: '/images/client/patiobricking4.JPG', alt: 'Retaining wall installation' },
+            ].map((img, i) => (
+              <div key={i} className="aspect-square rounded-xl overflow-hidden relative">
+                <Image src={img.src} alt={img.alt} fill sizes="12vw" className="object-cover opacity-60 hover:opacity-100 transition-opacity duration-300" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
               </div>
             ))}
           </div>
@@ -321,7 +339,7 @@ export default function AboutPage() {
       <section className="relative py-24 bg-[#1a1a1a] overflow-hidden">
         <CurveDivider position="top" fillClass="fill-[#1a1a1a]" />
         <div className="absolute inset-0">
-          <img src="/images/client/patiobricking2.jpg" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/patiobricking2.jpg" alt="Brick patio and outdoor living space - Holland MI landscaping" fill sizes="100vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/75" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

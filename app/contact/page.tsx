@@ -1,12 +1,21 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import CurveDivider from '@/components/CurveDivider';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Aesthetic Gardener',
+  title: 'Contact Us',
   description:
-    'Get a free quote for landscaping, lawn care, or snow removal. Reach Aesthetic Gardener in Holland, MI. We serve West Michigan.',
+    'Get a free quote for landscaping, lawn care, snow removal, or hardscaping in Holland MI and West Michigan. Call (616) 218-2698 or request a quote online.',
+  openGraph: {
+    title: 'Contact Aesthetic Gardener | Free Quote | Holland MI',
+    description:
+      'Get a free quote for landscaping, lawn care, snow removal, or hardscaping. Serving Holland, Zeeland, Grand Haven, and West Michigan.',
+    url: '/contact',
+  },
 };
 
 const SERVICE_AREAS = [
@@ -59,7 +68,7 @@ export default function ContactPage() {
         />
 
         <div className="absolute inset-0">
-          <img src="/images/client/heromain.jpg" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/heromain.jpg" alt="Contact Aesthetic Gardener for landscaping quotes in Holland Michigan" fill sizes="100vw" className="object-cover" priority placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/85" />
         </div>
 
@@ -158,60 +167,7 @@ export default function ContactPage() {
               <h2 className="font-display text-3xl font-bold text-white mb-6">
                 Get Your Free Quote
               </h2>
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-gray-300 font-medium mb-2">Name *</label>
-                  <input
-                    type="text"
-                    placeholder="John Smith"
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 font-medium mb-2">Email *</label>
-                  <input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 font-medium mb-2">Phone *</label>
-                  <input
-                    type="tel"
-                    placeholder="(616) 555-0123"
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-gray-300 font-medium mb-2">Service Type</label>
-                  <select className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white focus:border-accent focus:outline-none transition-colors">
-                    <option>Select a service...</option>
-                    <option>Landscaping Design</option>
-                    <option>Lawn Care & Maintenance</option>
-                    <option>Snow Removal</option>
-                    <option>Hardscaping</option>
-                    <option>Not Sure / Multiple Services</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-gray-300 font-medium mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us about your project..."
-                    className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-[1.02] transition-all duration-300"
-                >
-                  Send Message
-                </button>
-                <p className="text-sm text-gray-500 text-center">
-                  This is a demo form.
-                </p>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </div>
@@ -224,7 +180,7 @@ export default function ContactPage() {
         <div className="absolute top-10 left-0 w-64 h-64 bg-accent/5 blob" />
 
         <div className="absolute inset-0">
-          <img src="/images/client/Freshmowedlawn.jpg" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/Freshmowedlawn.jpg" alt="Lawn care service areas - West Michigan communities" fill sizes="100vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/85" />
         </div>
 
@@ -259,13 +215,13 @@ export default function ContactPage() {
           </h2>
           <div className="grid grid-cols-4 gap-3 mb-12">
             {[
-              '/images/client/PAtiobricking3.JPG',
-              '/images/client/gardening.JPG',
-              '/images/client/Freshmowedlawn.jpg',
-              '/images/client/patiobricking.jpg',
-            ].map((src, i) => (
-              <div key={i} className="aspect-[4/3] rounded-xl overflow-hidden">
-                <img src={src} alt="" className="w-full h-full object-cover" />
+              { src: '/images/client/PAtiobricking3.JPG', alt: 'Patio and fire pit hardscaping - Holland MI' },
+              { src: '/images/client/gardening.JPG', alt: 'Garden landscaping - West Michigan' },
+              { src: '/images/client/Freshmowedlawn.jpg', alt: 'Professional lawn mowing Holland Michigan' },
+              { src: '/images/client/patiobricking.jpg', alt: 'Brick patio installation Aesthetic Gardener' },
+            ].map((img, i) => (
+              <div key={i} className="aspect-[4/3] rounded-xl overflow-hidden relative">
+                <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
               </div>
             ))}
           </div>

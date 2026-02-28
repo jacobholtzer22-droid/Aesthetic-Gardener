@@ -1,6 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 const services = [
   { icon: '🌱', title: 'Landscaping Design', image: '/images/client/gardening.JPG', href: '/services/landscaping-design' },
@@ -42,7 +42,7 @@ export default function ServicesIntro({
               href={service.href}
               className="group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/3]"
             >
-              <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <Image src={service.image} alt={`${service.title} - Professional landscaping service in Holland MI`} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
               <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300" />
               <div className="relative flex flex-col items-center justify-center h-full p-4">
                 <span className="text-3xl block mb-3">{service.icon}</span>

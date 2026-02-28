@@ -1,12 +1,20 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export const metadata: Metadata = {
-  title: 'Landscaping Services | Aesthetic Gardener Holland MI',
+  title: 'Landscaping Services',
   description:
-    'Full-service landscaping: design, lawn care, snow removal, hardscaping, irrigation, and seasonal cleanups. Serving Holland and West Michigan.',
+    'Full-service landscaping in Holland MI: design, lawn care, snow removal, hardscaping, irrigation, and seasonal cleanups. Serving Holland, Zeeland, and West Michigan.',
+  openGraph: {
+    title: 'Landscaping Services | Aesthetic Gardener Holland MI',
+    description:
+      'Full-service landscaping: design, lawn care, snow removal, hardscaping. Serving Holland and West Michigan.',
+    url: '/services',
+  },
 };
 
 const services = [
@@ -135,7 +143,7 @@ export default function ServicesPage() {
 
       <section className="relative pt-28 pb-24 bg-[#0a0a0a] overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/client/patiobricking4-2.JPG" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/patiobricking4-2.JPG" alt="Professional landscaping services in Holland Michigan - Aesthetic Gardener" fill sizes="100vw" className="object-cover" priority placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/80" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -162,10 +170,15 @@ export default function ServicesPage() {
                 }`}
               >
                 <div className="relative h-48 -mx-8 -mt-8 mb-6 rounded-t-3xl overflow-hidden">
-                  <img
+                  <Image
                     src={service.image}
-                    alt={service.name}
-                    className="w-full h-full object-cover"
+                    alt={`${service.name} - Professional service in Holland MI and West Michigan`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent" />
                 </div>

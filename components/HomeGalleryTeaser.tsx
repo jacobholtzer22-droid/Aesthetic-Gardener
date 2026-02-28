@@ -1,6 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 const galleryTeaser = [
   {
@@ -48,10 +48,15 @@ export default function HomeGalleryTeaser() {
               key={index}
               className="group relative overflow-hidden rounded-2xl shadow-lg shadow-black/30 aspect-[3/4]"
             >
-              <img
+              <Image
                 src={project.url}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                alt={`${project.title} - ${project.category} project by Aesthetic Gardener Holland MI`}
+                fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4">

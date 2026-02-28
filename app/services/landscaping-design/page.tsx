@@ -1,14 +1,21 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 import CurveDivider from '@/components/CurveDivider';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Landscaping Design Services | Aesthetic Gardener Holland MI',
+  title: 'Landscaping Design Services',
   description:
-    'Custom garden design, plant selection, tree installation, and landscape lighting in Holland & West Michigan. Transform your outdoor space with Aesthetic Gardener.',
+    'Custom garden design, plant selection, tree installation, and landscape lighting in Holland MI and West Michigan. Transform your outdoor space with Aesthetic Gardener.',
+  openGraph: {
+    title: 'Landscaping Design | Aesthetic Gardener Holland MI',
+    description:
+      'Custom garden design, plant selection, tree installation in Holland & West Michigan. Transform your outdoor space.',
+    url: '/services/landscaping-design',
+  },
 };
 
 const offers = [
@@ -84,10 +91,13 @@ export default function LandscapingDesignPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/client/gardening.JPG"
-              alt="Landscaping design"
+              alt="Custom landscaping design and garden installation by Aesthetic Gardener Holland Michigan"
               fill
+              sizes="100vw"
               className="object-cover"
               priority
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
             />
             <div className="absolute inset-0 bg-forest-900/60" />
           </div>
@@ -134,7 +144,7 @@ export default function LandscapingDesignPage() {
                 className="group relative overflow-hidden rounded-3xl shadow-lg border border-white/10 card-hover animate-fade-in"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <img src={item.image} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <Image src={item.image} alt={`${item.title} - Landscaping design in Holland MI`} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
                 <div className="relative p-8">
                   <div className="w-14 h-14 bg-accent/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-5 text-2xl">
@@ -154,7 +164,7 @@ export default function LandscapingDesignPage() {
       <section className="relative py-24 bg-[#111111] overflow-hidden">
         <CurveDivider position="top" fillClass="fill-[#111111]" />
         <div className="absolute inset-0">
-          <img src="/images/client/gardenbricking2.JPG" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/gardenbricking2.JPG" alt="Landscaping design process - Aesthetic Gardener West Michigan" fill sizes="100vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/85" />
         </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -210,7 +220,7 @@ export default function LandscapingDesignPage() {
                 key={index}
                 className="group relative overflow-hidden rounded-3xl shadow-lg border border-white/10 card-hover text-center"
               >
-                <img src={item.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                <Image src={item.image} alt={`${item.title} - Aesthetic Gardener landscaping design`} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
                 <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
                 <div className="relative p-8">
                   <h3 className="font-display text-xl font-bold text-white mb-3">{item.title}</h3>
@@ -247,6 +257,9 @@ export default function LandscapingDesignPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
               </div>
             ))}
@@ -255,11 +268,54 @@ export default function LandscapingDesignPage() {
         <CurveDivider position="bottom" fillClass="fill-[#0a0a0a]" />
       </section>
 
+      {/* Related Services */}
+      <section className="relative py-24 bg-[#0a0a0a] overflow-hidden">
+        <CurveDivider position="top" fillClass="fill-[#0a0a0a]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-4xl font-bold text-white text-center mb-12">
+            Explore Our Other Services
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <Link
+              href="/services/lawn-care"
+              className="group bg-[#1a1a1a] rounded-2xl p-6 border border-white/10 hover:border-accent/40 transition-all card-hover"
+            >
+              <span className="text-3xl block mb-3">🌿</span>
+              <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">
+                Lawn Care & Maintenance
+              </h3>
+              <p className="text-gray-400 text-sm">Weekly mowing, fertilization, and more.</p>
+            </Link>
+            <Link
+              href="/services/snow-removal"
+              className="group bg-[#1a1a1a] rounded-2xl p-6 border border-white/10 hover:border-accent/40 transition-all card-hover"
+            >
+              <span className="text-3xl block mb-3">❄️</span>
+              <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">
+                Snow Removal
+              </h3>
+              <p className="text-gray-400 text-sm">Reliable plowing and de-icing all winter.</p>
+            </Link>
+            <Link
+              href="/services/hardscaping"
+              className="group bg-[#1a1a1a] rounded-2xl p-6 border border-white/10 hover:border-accent/40 transition-all card-hover"
+            >
+              <span className="text-3xl block mb-3">🪨</span>
+              <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-accent-light transition-colors">
+                Hardscaping
+              </h3>
+              <p className="text-gray-400 text-sm">Patios, walkways, retaining walls.</p>
+            </Link>
+          </div>
+        </div>
+        <CurveDivider position="bottom" fillClass="fill-[#1a1a1a]" />
+      </section>
+
       {/* Pricing / CTA */}
       <section className="relative py-24 bg-[#1a1a1a] overflow-hidden">
         <CurveDivider position="top" fillClass="fill-[#1a1a1a]" />
         <div className="absolute inset-0">
-          <img src="/images/client/gardenbricking2-3.JPG" alt="" className="w-full h-full object-cover" />
+          <Image src="/images/client/gardenbricking2-3.JPG" alt="Residential landscape design - Holland MI quote" fill sizes="100vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           <div className="absolute inset-0 bg-black/75" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

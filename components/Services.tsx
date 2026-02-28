@@ -1,6 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export default function Services() {
   const services = [
@@ -62,11 +62,16 @@ export default function Services() {
                 index + 1
               }`}
             >
-              <div className="w-full h-[200px] rounded-t-3xl overflow-hidden">
-                <img
+              <div className="relative w-full h-[200px] rounded-t-3xl overflow-hidden">
+                <Image
                   src={service.image}
-                  alt=""
-                  className="w-full h-full object-cover"
+                  alt={`${service.title} - Professional landscaping service in Holland MI`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  className="object-cover"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
               </div>
               <div className="p-8">

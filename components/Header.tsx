@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const servicesDropdownItems = [
@@ -74,15 +75,17 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-3">
-              <img
+              <Image
                 src="/logo.png"
                 alt="Aesthetic Gardener"
+                width={48}
+                height={48}
                 className="h-12 w-auto object-contain"
               />
               <div>
-                <h1 className="text-2xl font-display font-bold text-white">
+                <span className="block text-2xl font-display font-bold text-white">
                   Aesthetic Gardener
-                </h1>
+                </span>
                 <p className="text-xs text-gray-400 font-body">Holland, Michigan</p>
               </div>
             </Link>

@@ -1,16 +1,21 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/images/client/heromain.jpg"
-          alt=""
-          className="w-full h-full object-cover"
+          alt="Professional landscaping and lawn care by Aesthetic Gardener in Holland Michigan"
+          fill
+          className="object-cover"
+          priority
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
+          sizes="100vw"
         />
       </div>
 

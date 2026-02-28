@@ -1,4 +1,5 @@
-'use client';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 const values = [
   {
@@ -47,9 +48,9 @@ export default function HomeWhyChooseUs() {
           {values.map((value, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-2xl shadow-lg group"
+              className="relative overflow-hidden rounded-2xl shadow-lg group aspect-[4/3]"
             >
-              <img src={value.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+              <Image src={value.image} alt={`${value.title} - ${value.description}`} fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
               <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition-colors duration-300" />
               <div className="relative text-center p-6">
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">

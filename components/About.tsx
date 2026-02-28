@@ -1,4 +1,6 @@
-'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export default function About() {
   const testimonials = [
@@ -48,11 +50,16 @@ export default function About() {
         {/* About intro */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <div className="relative animate-slide-up">
-            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl shadow-black/40">
-              <img
+            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl shadow-black/40 h-[600px]">
+              <Image
                 src="/images/client/gardenbricking2-2.JPG"
-                alt="About Aesthetic Gardener"
-                className="w-full h-[600px] object-cover"
+                alt="Professional landscaping and garden design by Aesthetic Gardener Holland Michigan"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
             </div>
             <div className="absolute -top-8 -right-8 w-48 h-48 bg-accent/5 blob"></div>
@@ -78,9 +85,12 @@ export default function About() {
             </p>
 
             <div className="pt-4">
-              <button className="bg-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300">
+              <Link
+                href="/about"
+                className="inline-block bg-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300"
+              >
                 Learn More About Us
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,27 +1,27 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 export default function Footer() {
   return (
     <footer className="relative bg-[#111111] text-white border-t border-white/10">
       <div className="grid grid-cols-6 lg:grid-cols-12 gap-0">
         {[
-          '/images/client/PAtiobricking3.JPG',
-          '/images/client/gardening.JPG',
-          '/images/client/Freshmowedlawn.jpg',
-          '/images/client/patiobricking.jpg',
-          '/images/client/gardenbricking2-2.JPG',
-          '/images/client/Patiowoodwalkway.jpg',
-          '/images/client/drivewaybricking.JPG',
-          '/images/client/patiobricking4.JPG',
-          '/images/client/heromain.jpg',
-          '/images/client/BackyardFencingandcenterbrick.jpg',
-          '/images/client/Walkwaylandscapping.JPG',
-          '/images/client/generallawnlandscape2.jpg',
-        ].map((src, i) => (
-          <div key={i} className="aspect-[3/2] overflow-hidden">
-            <img src={src} alt="" className="w-full h-full object-cover opacity-40 hover:opacity-70 transition-opacity duration-300" />
+          { src: '/images/client/PAtiobricking3.JPG', alt: 'Paver patio with fire pit - Aesthetic Gardener Holland MI' },
+          { src: '/images/client/gardening.JPG', alt: 'Garden landscaping design - Holland Michigan' },
+          { src: '/images/client/Freshmowedlawn.jpg', alt: 'Professional lawn mowing - West Michigan lawn care' },
+          { src: '/images/client/patiobricking.jpg', alt: 'Brick patio installation - Aesthetic Gardener' },
+          { src: '/images/client/gardenbricking2-2.JPG', alt: 'Garden landscape with flagstone - Holland MI' },
+          { src: '/images/client/Patiowoodwalkway.jpg', alt: 'Wood walkway landscaping - West Michigan' },
+          { src: '/images/client/drivewaybricking.JPG', alt: 'Driveway hardscaping - Aesthetic Gardener' },
+          { src: '/images/client/patiobricking4.JPG', alt: 'Terraced retaining walls - Holland MI landscaping' },
+          { src: '/images/client/heromain.jpg', alt: 'Landscaping services Holland Michigan' },
+          { src: '/images/client/BackyardFencingandcenterbrick.jpg', alt: 'Backyard landscaping with fencing' },
+          { src: '/images/client/Walkwaylandscapping.JPG', alt: 'Walkway and retaining wall - West Michigan' },
+          { src: '/images/client/generallawnlandscape2.jpg', alt: 'Lawn care and landscape maintenance' },
+        ].map((img, i) => (
+          <div key={i} className="aspect-[3/2] overflow-hidden relative">
+            <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1024px) 33vw, 8vw" className="object-cover opacity-40 hover:opacity-70 transition-opacity duration-300" loading="lazy" placeholder="blur" blurDataURL={BLUR_DATA_URL} />
           </div>
         ))}
       </div>
@@ -30,9 +30,11 @@ export default function Footer() {
           {/* Company info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <img
+              <Image
                 src="/logo.png"
-                alt="Aesthetic Gardener"
+                alt="Aesthetic Gardener - Professional landscaping Holland Michigan"
+                width={48}
+                height={48}
                 className="h-12 w-auto object-contain"
               />
               <div>
@@ -70,28 +72,28 @@ export default function Footer() {
             <h4 className="font-display text-lg font-bold mb-4">Our Services</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-accent-light transition-colors">
+                <Link href="/services/landscaping-design" className="text-gray-400 hover:text-accent-light transition-colors">
                   Landscaping Design
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-accent-light transition-colors">
+                <Link href="/services/lawn-care" className="text-gray-400 hover:text-accent-light transition-colors">
                   Lawn Care & Maintenance
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-accent-light transition-colors">
+                <Link href="/services/snow-removal" className="text-gray-400 hover:text-accent-light transition-colors">
                   Snow Removal
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-accent-light transition-colors">
+                <Link href="/services/hardscaping" className="text-gray-400 hover:text-accent-light transition-colors">
                   Hardscaping
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-accent-light transition-colors">
-                  Tree & Shrub Care
+                  All Services
                 </Link>
               </li>
             </ul>

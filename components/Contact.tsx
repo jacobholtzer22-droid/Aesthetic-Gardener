@@ -1,5 +1,7 @@
 'use client';
 
+import ContactForm from './ContactForm';
+
 export default function Contact() {
   return (
     <section id="contact" className="relative py-24 bg-[#0a0a0a] overflow-hidden">
@@ -87,76 +89,7 @@ export default function Contact() {
             <h3 className="font-display text-3xl font-bold text-white mb-6">
               Get Your Free Quote
             </h3>
-            <form className="space-y-6">
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  placeholder="John Smith"
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  placeholder="(616) 555-0123"
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">
-                  Service Needed
-                </label>
-                <select className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white focus:border-accent focus:outline-none transition-colors">
-                  <option>Select a service...</option>
-                  <option>Landscaping Design</option>
-                  <option>Lawn Care & Maintenance</option>
-                  <option>Snow Removal</option>
-                  <option>Hardscaping</option>
-                  <option>Not Sure / Multiple Services</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-gray-300 font-medium mb-2">
-                  Project Details
-                </label>
-                <textarea
-                  rows={4}
-                  placeholder="Tell us about your project..."
-                  className="w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-accent text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent-light hover:shadow-2xl hover:shadow-accent/20 hover:scale-105 transition-all duration-300"
-              >
-                Request Free Quote
-              </button>
-
-              <p className="text-sm text-gray-500 text-center">
-                This is a demo form. Actual form will be functional after project completion.
-              </p>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>

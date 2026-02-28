@@ -1,9 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import CurveDivider from '@/components/CurveDivider';
 import Footer from '@/components/Footer';
+import { BLUR_DATA_URL } from '@/lib/image-utils';
 
 type Category = 'All Projects' | 'Landscaping' | 'Hardscaping' | 'Lawn Care';
 
@@ -149,7 +151,7 @@ export default function GalleryPage() {
       <div className="pt-24">
         <section className="relative py-24 bg-[#0a0a0a] overflow-hidden">
           <div className="absolute inset-0">
-            <img src="/images/client/gardenbricking2-2.JPG" alt="" className="w-full h-full object-cover" />
+            <Image src="/images/client/gardenbricking2-2.JPG" alt="Landscape design portfolio - Aesthetic Gardener Holland MI" fill sizes="100vw" className="object-cover" priority placeholder="blur" blurDataURL={BLUR_DATA_URL} />
             <div className="absolute inset-0 bg-black/80" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,10 +197,15 @@ export default function GalleryPage() {
                   <div
                     className={`relative w-full ${project.rowSpan ? 'h-full min-h-[420px]' : 'aspect-[4/3]'}`}
                   >
-                    <img
+                    <Image
                       src={project.url}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      alt={`${project.title} - ${project.category} project by Aesthetic Gardener Holland Michigan`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={BLUR_DATA_URL}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex flex-col justify-end p-6">
