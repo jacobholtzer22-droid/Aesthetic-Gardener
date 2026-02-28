@@ -174,9 +174,9 @@ export default function Footer() {
               href="https://alignandacquire.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-accent-light transition-colors"
+              className="text-sm text-gray-300 hover:text-accent-light transition-colors"
             >
-              Align & Acquire
+              Align and Acquire
             </a>
           </p>
         </div>
