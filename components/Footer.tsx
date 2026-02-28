@@ -47,26 +47,6 @@ export default function Footer() {
             <p className="text-gray-400 mb-6">
               Crafting beautiful outdoor spaces across West Michigan for over 21 years.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-accent/20 rounded-full flex items-center justify-center transition-colors"
-              >
-                <span>f</span>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-accent/20 rounded-full flex items-center justify-center transition-colors"
-              >
-                <span>in</span>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-white/10 hover:bg-accent/20 rounded-full flex items-center justify-center transition-colors"
-              >
-                <span>ig</span>
-              </a>
-            </div>
           </div>
 
           {/* Services */}
@@ -177,22 +157,16 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © 2024 Aesthetic Gardener. All rights reserved.
+              © {new Date().getFullYear()} Aesthetic Gardener. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-gray-500 hover:text-accent-light transition-colors">
+              <Link href="/privacy-policy" className="text-gray-500 hover:text-accent-light transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-accent-light transition-colors">
+              </Link>
+              <Link href="/terms" className="text-gray-500 hover:text-accent-light transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
-          </div>
-
-          <div className="mt-6 text-center">
-            <p className="text-gray-500 text-xs bg-white/5 inline-block px-4 py-2 rounded-full">
-              ⚠️ This is a demo website. Full functionality will be available after project completion.
-            </p>
           </div>
         </div>
       </div>
