@@ -54,8 +54,9 @@ export default function ContactForm() {
     }
   };
 
+  /* Dark text on light bg, visible borders, visible placeholders - works in light & dark mode */
   const inputClass =
-    'w-full px-6 py-4 rounded-2xl border-2 border-white/10 bg-[#111111] text-white placeholder-gray-500 focus:border-accent focus:outline-none transition-colors';
+    'w-full px-6 py-4 rounded-2xl border-2 border-gray-300 bg-white text-[#1a1a1a] placeholder-[#6b7280] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20 transition-colors dark:bg-white dark:border-gray-400 dark:text-[#1a1a1a] dark:placeholder-[#6b7280]';
   const labelClass = 'block text-gray-300 font-medium mb-2';
 
   if (status === 'success') {
@@ -151,6 +152,20 @@ export default function ContactForm() {
           className={`${inputClass} resize-none`}
           disabled={status === 'loading'}
         />
+      </div>
+      <div className="space-y-3">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            name="sms_consent"
+            required
+            disabled={status === 'loading'}
+            className="mt-1.5 w-4 h-4 rounded border-2 border-gray-400 bg-white text-accent focus:ring-accent focus:ring-offset-0 focus:border-accent cursor-pointer dark:bg-white dark:border-gray-500"
+          />
+          <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+            By checking this box and providing your phone number, you consent to receive SMS messages from Align and Acquire. Message frequency may vary. Standard message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase.
+          </span>
+        </label>
       </div>
       {status === 'error' && (
         <div className="rounded-2xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-red-400 text-sm">

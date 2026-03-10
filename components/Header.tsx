@@ -18,6 +18,7 @@ const navLinks = [
   { href: null, label: 'Our Services', isDropdown: true },
   { href: '/gallery', label: 'Gallery' },
   { href: '/about', label: 'About' },
+  { href: '/book/aesthetic-gardener', label: 'Book' },
   { href: '/contact', label: 'Contact' },
 ] as const;
 
