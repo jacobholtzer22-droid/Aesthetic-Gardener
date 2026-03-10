@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: 'Aesthetic Gardener Website <onboarding@resend.dev>',
+            from: 'Aesthetic Gardener <notifications@alignandacquire.com>',
             to: contactEmail,
             subject: `New Lead from Website: ${name}`,
             html: `
