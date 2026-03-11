@@ -62,7 +62,7 @@ export default function Contact() {
                 <div>
                   <div className="font-semibold text-white mb-1">Location</div>
                   <div className="text-lg text-gray-300">
-                    199 E 34th St #6<br />
+                    176 E 40th St<br />
                     Holland, Michigan 49423
                   </div>
                 </div>

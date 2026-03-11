@@ -108,7 +108,7 @@ export default function TermsPage() {
               </p>
               <p className="mt-4 text-gray-400">
                 Aesthetic Gardener<br />
-                199 E 34th St #6, Holland, MI 49423<br />
+                176 E 40th St, Holland, MI 49423<br />
                 Phone: (616) 218-2698<br />
                 Email: info@aestheticgardener.net
               </p>

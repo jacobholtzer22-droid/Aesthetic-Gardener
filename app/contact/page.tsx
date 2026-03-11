@@ -124,7 +124,7 @@ export default function ContactPage() {
                   <div>
                     <div className="font-semibold text-white mb-1">Address</div>
                     <div className="text-lg text-gray-300">
-                      199 E 34th St #6<br />
+                      176 E 40th St<br />
                       Holland, Michigan 49423
                     </div>
                   </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
               {/* Google Map */}
               <div className="rounded-[2rem] overflow-hidden shadow-xl border-2 border-white/10">
                 <iframe
-                  src="https://www.google.com/maps?q=199+E+34th+St,+Holland,+MI+49423&output=embed"
+                  src="https://www.google.com/maps?q=176+E+40th+St,+Holland,+MI+49423&output=embed"
                   width="100%"
                   height="240"
                   style={{ border: 0 }}

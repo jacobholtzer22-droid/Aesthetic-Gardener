@@ -85,7 +85,7 @@ const localBusinessSchema = {
   email: "info@aestheticgardener.net",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "199 E 34th St #6",
+    streetAddress: "176 E 40th St",
     addressLocality: "Holland",
     addressRegion: "MI",
     postalCode: "49423",
