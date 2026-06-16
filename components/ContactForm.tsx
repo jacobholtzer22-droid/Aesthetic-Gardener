@@ -32,7 +32,7 @@ export default function ContactForm() {
       .join('\n\n');
 
     const payload = {
-      businessSlug: 'aesthetic-gardener-1772735253468',
+      businessSlug: 'aesthetic-gardener',
       name,
       phone,
       email,
