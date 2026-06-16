@@ -20,19 +20,31 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const name = (formData.get('name') as string) || '';
+    const email = (formData.get('email') as string) || '';
+    const phone = (formData.get('phone') as string) || '';
+    const service = (formData.get('service') as string) || '';
+    const typedMessage = (formData.get('message') as string) || '';
+    const smsConsent = formData.get('sms_consent') === 'on';
+
+    const message = [service ? `Service: ${service}` : '', typedMessage]
+      .filter(Boolean)
+      .join('\n\n');
+
     const payload = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
-      service: (formData.get('service') as string) || '',
-      message: (formData.get('message') as string) || '',
+      businessSlug: 'aesthetic-gardener-1772735253468',
+      name,
+      phone,
+      email,
+      message,
+      smsConsent,
     };
 
     setStatus('loading');
     setErrorMessage('');
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://www.alignandacquire.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
