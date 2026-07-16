@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const CRM_URL = process.env.MAIN_APP_URL || 'https://www.alignandacquire.com';
+const CRM_BUSINESS_SLUG = process.env.MAIN_APP_BUSINESS_SLUG || 'aesthetic-gardener';
+
 type BookingPayload = {
   businessSlug: string;
   name: string;
@@ -9,6 +12,7 @@ type BookingPayload = {
   message: string;
   date: string;
   time: string;
+  smsConsent?: boolean;
 };
 
 function escapeHtml(text: string): string {
@@ -23,7 +27,7 @@ function escapeHtml(text: string): string {
 export async function POST(request: NextRequest) {
   try {
     const body: BookingPayload = await request.json();
-    const { businessSlug, name, email, phone, service, message, date, time } = body;
+    const { name, email, phone, service, message, date, time, smsConsent } = body;
 
     if (!name?.trim() || !email?.trim() || !phone?.trim() || !date || !time) {
       return NextResponse.json(
@@ -32,10 +36,46 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Persist to the CRM first — creates Contact + WebsiteLead and
+    // notifies the owner by SMS + email through the dashboard.
+    const bookingSummary = [
+      'BOOKING REQUEST',
+      `Requested date: ${date} at ${time}`,
+      `Service: ${service || 'Not specified'}`,
+      message ? `Details: ${message}` : '',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    let crmSaved = false;
+    try {
+      const crmRes = await fetch(`${CRM_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          businessSlug: CRM_BUSINESS_SLUG,
+          name,
+          phone,
+          email,
+          smsConsent: smsConsent === true,
+          message: bookingSummary,
+        }),
+      });
+      crmSaved = crmRes.ok;
+      if (!crmRes.ok) {
+        console.error('[Booking API] CRM forward failed:', crmRes.status, await crmRes.text());
+      }
+    } catch (err) {
+      console.error('[Booking API] CRM forward exception:', err);
+    }
+
     const contactEmail = process.env.CONTACT_EMAIL;
     const resendKey = process.env.RESEND_API_KEY;
+    let emailSent = false;
 
-    if (resendKey && contactEmail) {
+    if (!resendKey || !contactEmail) {
+      console.error('[Booking API] Email NOT sent: RESEND_API_KEY or CONTACT_EMAIL is not set');
+    } else {
       try {
         const emailRes = await fetch('https://api.resend.com/emails', {
           method: 'POST',
@@ -44,7 +84,7 @@ export async function POST(request: NextRequest) {
             Authorization: `Bearer ${resendKey}`,
           },
           body: JSON.stringify({
-            from: 'Aesthetic Gardener Website <onboarding@resend.dev>',
+            from: 'Aesthetic Gardener <notifications@alignandacquire.com>',
             to: contactEmail,
             subject: `Booking Request: ${name} - ${date} at ${time}`,
             html: `
@@ -81,21 +121,22 @@ export async function POST(request: NextRequest) {
           }),
         });
 
+        emailSent = emailRes.ok;
         if (!emailRes.ok) {
           const errData = await emailRes.text();
           console.error('[Booking API] Resend error:', emailRes.status, errData);
-          return NextResponse.json(
-            { error: 'Unable to send booking request. Please try calling directly.' },
-            { status: 500 }
-          );
         }
       } catch (err) {
         console.error('[Booking API] Resend exception:', err);
-        return NextResponse.json(
-          { error: 'Something went wrong. Please try again.' },
-          { status: 500 }
-        );
       }
+    }
+
+    // Fail loudly only if the booking reached nobody.
+    if (!crmSaved && !emailSent) {
+      return NextResponse.json(
+        { error: 'Unable to send your booking request. Please call us directly.' },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });

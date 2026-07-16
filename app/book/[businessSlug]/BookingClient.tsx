@@ -86,6 +86,7 @@ export default function BookingClient({ business }: { business: Business }) {
       message: (formData.get('message') as string) || '',
       date: selectedDate.toISOString().split('T')[0],
       time: selectedTime,
+      smsConsent: formData.get('sms_consent') === 'on',
     };
 
     setStatus('loading');
@@ -347,6 +348,20 @@ export default function BookingClient({ business }: { business: Business }) {
                 disabled={status === 'loading'}
               />
             </div>
+
+            <label className="flex items-start gap-3 text-sm text-gray-400">
+              <input
+                type="checkbox"
+                name="sms_consent"
+                required
+                className="mt-1 h-4 w-4 accent-[var(--brand)]"
+                disabled={status === 'loading'}
+              />
+              <span>
+                I agree to receive calls and text messages from {business.name} about my
+                appointment request. *
+              </span>
+            </label>
 
             {status === 'error' && (
               <div className="rounded-xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-red-400 text-sm">
