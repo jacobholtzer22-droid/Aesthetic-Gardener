@@ -159,6 +159,7 @@ export default function RootLayout({
             __html: JSON.stringify(localBusinessSchema),
           }}
         />
+        <script defer src="https://www.alignandacquire.com/t/s/aesthetic-gardener.js"></script>
         {/* For Google Analytics: use next/script with strategy="afterInteractive" to defer loading */}
       </head>
       <body className={`${cormorant.variable} ${outfit.variable} antialiased`}>{children}</body>
